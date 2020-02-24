@@ -9,6 +9,11 @@ import java.security.NoSuchAlgorithmException;
  */
 public class Hachage {
 
+    /**
+     * Méthode pour hacher en SHA-1 une chaine de caractere
+     * @param str : chaine à hacher
+     * @return    : chaine hachée
+     */
     public static String hachage(String str) {
         StringBuffer hexString = new StringBuffer();
 
