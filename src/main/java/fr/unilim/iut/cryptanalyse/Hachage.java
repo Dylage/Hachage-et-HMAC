@@ -1,13 +1,33 @@
 package fr.unilim.iut.cryptanalyse;
 
+import java.security.DigestException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Hachage
  */
 public class Hachage {
 
-    public static void main(String[] args) {
+    public static String hachage(String str) {
+        StringBuffer hexString = new StringBuffer();
 
-        
+        byte[] digest;
+
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA");
+
+            md.update(str.getBytes());
+            digest = md.digest();
+
+            for (int i = 0; i < digest.length; i++) {
+                hexString.append(Integer.toHexString(0xFF & digest[i]));
+            }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+         
+
+        return hexString.toString();
     }
 }
