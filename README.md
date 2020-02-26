@@ -4,7 +4,9 @@
 
 ### Nombre de lignes avant collision
 
-Avec un digest de 6 bits, il faut 10 essais.
+Avec un digest de 5 bits, il faut 10 essais.
+
+Avec 6 bits il en faut 10 également
 
 Avec 7 bits il en faut 23
 
