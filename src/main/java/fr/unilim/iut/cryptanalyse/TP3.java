@@ -77,9 +77,14 @@ public class TP3 {
                 System.out.println("Veuillez saisir la clef :");
                 key = sc.nextLine();
 
-                hashedText = HMAC.hmac(clearText, key);
+                hashedText = HMAC.hmacSha1(clearText, key);
 
-                System.out.println(HMAC.toHex(hashedText));
+                System.out.println("HMAC-SHA1 : " + HMAC.toHex(hashedText));
+
+                hashedText = HMAC.hmacSha512(clearText, key);
+
+                System.out.println("HMAC-SHA512 : " + HMAC.toHex(hashedText));
+
 
                 break;
             default:

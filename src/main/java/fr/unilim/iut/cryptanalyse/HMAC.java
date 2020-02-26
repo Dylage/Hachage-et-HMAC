@@ -18,7 +18,7 @@ public class HMAC {
      * @param key : clef de hachage
      * @return : un tableau d'octet, chiffrés
      */
-    public static byte[] hmac(String clearedText, String key) {
+    public static byte[] hmacSha1(String clearedText, String key) {
         byte[] hashedText = null;
 
         try {
@@ -27,6 +27,38 @@ public class HMAC {
             Key sks = new SecretKeySpec(byteKey, "SHA");
 
             Mac mac = Mac.getInstance("HmacSHA1");
+
+            mac.init(sks);
+
+            hashedText = mac.doFinal(clearedText.getBytes("UTF-8"));
+
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (InvalidKeyException e) {
+            e.printStackTrace();
+        }
+
+        return hashedText;
+    }
+
+    /**
+     * Méthode pour hacher en HMAC-SHA1
+     * @param clearedText : texte à hacher
+     * @param key : clef de hachage
+     * @return : un tableau d'octet, chiffrés
+     */
+    public static byte[] hmacSha512(String clearedText, String key) {
+        byte[] hashedText = null;
+
+        try {
+            byte[] byteKey = key.getBytes("UTF-8");
+
+            Key sks = new SecretKeySpec(byteKey, "SHA-512");
+
+            Mac mac = Mac.getInstance("HmacSHA512");
 
             mac.init(sks);
 
