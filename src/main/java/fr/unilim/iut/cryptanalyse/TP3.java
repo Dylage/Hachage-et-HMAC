@@ -14,14 +14,14 @@ public class TP3 {
         System.out.println("Bienvenue dans ce module de hachage");
         System.out.println("1 - Hacher");
         System.out.println("2 - Trouver collisions");
-        // System.out.println("3 - Cryptanalyse (Kasiski)");
+        System.out.println("3 - Trouver collisions avec un mot");
         System.out.print("Votre choix : ");
 
         int choix = sc.nextInt();
 
         String clearText;
         byte[] hashedText;
-
+        int nbBits;
         
 
         switch (choix) {
@@ -36,7 +36,7 @@ public class TP3 {
             case 2:
                 System.out.println("Veuillez entrer le nombre de bits (entre 1 et 16) :");
 
-                int nbBits = sc.nextInt();
+                nbBits = sc.nextInt();
 
                 if (nbBits > 16) {
                     System.err.println("Trop de bits pour le programme...");
@@ -47,10 +47,21 @@ public class TP3 {
                         
                 break;
             case 3:
-                // System.out.println("Veuillez entrer le texte à analyser :");
-                // crypted = sc.next();
-                // int[] tailles = Kasiski.estimateKeySize(crypted);
-                // System.out.println("\nTaille probable de la clef : " + tailles[0] + " ou " + tailles[1]);
+
+                System.out.println("Veuillez entrer le mot à chercher");
+
+                String word = sc.next();
+
+                System.out.println("Veuillez entrer le nombre de bits (entre 1 et 16) :");
+
+                nbBits = sc.nextInt();
+
+                if (nbBits > 16) {
+                    System.err.println("Trop de bits pour le programme...");
+                    break;
+                }
+
+                Hachage.findCollisionWithHashed("ods5.txt", word, nbBits);
 
                 break;
         
