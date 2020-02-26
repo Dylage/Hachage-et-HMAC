@@ -32,4 +32,9 @@ Avec 10 bits il en faut 20965 également
 
 ### HMAC-SHA1
 
-Le texte "Ceci est mon premier HMAC SHA1" avec la clef "very secret key" donne : 60399b13dfb8b5ad552d4f30f4908b570c7e48be
+Le texte "Ceci est mon premier HMAC SHA1." avec la clef "very secret key" donne : 8f08a1b9d54642b85c0a158369e7675dc3c2b3e0
+
+### HMAC-SHA512
+
+Le texte "Ceci est mon premier HMAC SHA1." (pour avoir le même message) avec la clef "very secret key" donne :
+0dae9b811a749d55ec819b0a5638587ddf19a1172fd953650918f57a819349d99779c7af70c578e9b729fd1868bd9dab1c4a1d93b34e4530dde67b594283500d
