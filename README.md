@@ -29,3 +29,7 @@ Avec 8 bits il en faut 171 également
 Avec 9 bits il en faut 20965
 
 Avec 10 bits il en faut 20965 également
+
+### HMAC-SHA1
+
+Le texte "Ceci est mon premier HMAC SHA1" avec la clef "very secret key" donne : 60399b13dfb8b5ad552d4f30f4908b570c7e48be
