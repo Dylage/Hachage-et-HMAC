@@ -12,7 +12,7 @@ import java.util.HashMap;
  */
 public class Hachage {
 
-    private static final int NUMBER_OF_BITS = 8;
+    private static final int NUMBER_OF_BITS = 5;
 
     /**
      * Méthode pour hacher en SHA-1 une chaine de caractere
@@ -38,7 +38,7 @@ public class Hachage {
         return digest;
     }
 
-    public static void findCollision(String filePath) {
+    public static void findCollision(String filePath, int numberOfBits) {
         BufferedReader br;
         String line;
 
@@ -47,7 +47,13 @@ public class Hachage {
             
             HashMap<Integer, String> hm = new HashMap<>();
             while ((line = br.readLine()) != null) {
-                int hash = Hachage.hachage(line)[0] % (1 << NUMBER_OF_BITS);
+                int hash;
+                if (numberOfBits > 8) {
+                    hash = Hachage.hachage(line)[0] * (int) Math.pow(2, 8)
+                         + Hachage.hachage(line)[1] % (1 << numberOfBits);
+                }else{
+                    hash = Hachage.hachage(line)[0] % (1 << numberOfBits);
+                }
                 if (hm.containsKey(hash)) {
                     System.err.println("Collision : " + line + " et " + hm.get(hash));
                     System.err.println("Nombres de lignes avant collision : " + hm.size());
@@ -58,7 +64,6 @@ public class Hachage {
             br.close();
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
