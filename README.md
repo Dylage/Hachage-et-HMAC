@@ -26,4 +26,4 @@ Avec 8 bits il en faut 171 également
 
 Avec 9 bits il en faut 20965
 
-Avec 10 bits il en faut 361 également
+Avec 10 bits il en faut 20965 également
