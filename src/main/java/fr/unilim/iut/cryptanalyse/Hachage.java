@@ -12,7 +12,6 @@ import java.util.HashMap;
  */
 public class Hachage {
 
-    private static final int NUMBER_OF_BITS = 5;
 
     /**
      * Méthode pour hacher en SHA-1 une chaine de caractere
