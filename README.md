@@ -2,6 +2,8 @@
 
 ## Réponses aux questions du TP
 
+La propriété des fonctions de hachage que l'on cherche à casser est la résistance à la seconde préimage. En effet, un attaquant pourrait ainsi se connecter sans connaitre le mot de passe utilisateur, mais en en trouvant un avec la même image suite à la fonction de hachage (une collision).
+
 ### Nombre de lignes avant collision
 
 Avec un digest de 5 bits, il faut 10 essais.
